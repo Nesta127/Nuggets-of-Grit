@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mr. Mompoloki Lerumo Mogobe – Book Landing Page</title>
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" />
+
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5;
+      color: #000;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 2rem;
+      overflow: hidden;
+    }
+
+    /* Background image with blur and dark overlay */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('{{ url_for("static", filename="images/hero-bg.jpg") }}');
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px) brightness(0.5);
+      transform: scale(1.05);
+      z-index: 0;
+    }
+
+    /* Content is above the background */
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      line-height: 1.7;
+    }
+
+    .glow-button {
+      display: inline-block;
+      padding: 14px 32px;
+      font-weight: bold;
+      font-size: 1rem;
+      color: white;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      background: linear-gradient(#000, #000) padding-box,
+                  linear-gradient(90deg, #ff9900, #ff00cc, #00ffff, #ff9900) border-box;
+      background-size: 200% 200%;
+      background-position: 0% 50%;
+      animation: borderGlow 4s linear infinite;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+      margin-top: 2rem;
+    }
+
+    .glow-button:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes borderGlow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <h1>“Your destiny is tied to your discipline.”</h1>
+
+      <p data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" style="font-weight: 600;">
+        Discover the bold blueprint for builders and believers —<br />
+        By Mr. Mompoloki Lerumo Mogobe
+      </p>
+
+      <a href="/book" class="glow-button" data-aos="zoom-in" data-aos-delay="900">
+        Grab the Blueprint
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© {{ year or 2025 }} Mr. Mompoloki Lerumo Mogobe. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+  </script>
+</body>
+</html>
